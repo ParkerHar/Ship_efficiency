@@ -15,3 +15,10 @@ def hist_plots(df, col, title):
     sns.histplot(df[col], bins=20, kde=True)
     plt.title(title)
     plt.show()
+
+# create scatter plots
+def scatter_plots(df, x, y, title):
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(x=x, y=y, data=df)
+    plt.title(title)
+    plt.show()
