@@ -22,3 +22,7 @@ def scatter_plots(df, x, y, title):
     sns.scatterplot(x=x, y=y, data=df)
     plt.title(title)
     plt.show()
+
+# Top N values
+def top_n(df, col, n):
+    return df.nlargest(n, col)
