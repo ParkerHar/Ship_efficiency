@@ -26,3 +26,11 @@ def scatter_plots(df, x, y, title):
 # Top N values
 def top_n(df, col, n):
     return df.nlargest(n, col)
+
+# Get a sense of the data
+def data_info(df):
+    print('DF SHAPE:','\n', df.shape)
+    print('DF COLUMNS:','\n', df.columns)
+    print('DF DESCRIBE:','\n', df.describe())
+    print('DF NULLS:','\n',df.isnull().sum())
+    print('DF HEAD:','\n',df.head())
