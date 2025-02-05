@@ -79,3 +79,16 @@ def mean_median(df):
     for col in df.select_dtypes(include='number').columns:
         print(f'{col} mean: {df[col].mean()}')
         print(f'{col} median: {df[col].median()}\n')
+
+def cat_buckets(df, col):
+    '''Function reads in a column and stores the values as numbers based on which
+    bucket they fall into.
+    
+        ARGS:
+        df: dataframe
+        col: column to bucket
+        
+        RETURNS:
+        df: dataframe with new column
+    '''
+    df[col+'_bucket'] = pd.qcut(df[col], q=4, labels=False)
