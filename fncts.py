@@ -11,7 +11,7 @@ def box_plots(df, col, title):
         title: title of the plot
     '''
     plt.figure(figsize=(10, 6))
-    sns.boxplot(x=col, data=df)
+    sns.boxplot(x=col, data=df) #showfliers=False can be added for no outliers. Easier to see for skewed data.
     plt.title(title)
     plt.show()
 
