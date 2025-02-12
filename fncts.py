@@ -1,6 +1,7 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import plotly.express as px
 
 def box_plots(df, col, title):
     '''Function reads the dataframe and returns a boxplot of a column.
@@ -41,6 +42,18 @@ def scatter_plots(df, x, y, title):
     sns.scatterplot(x=x, y=y, data=df)
     plt.title(title)
     plt.show()
+
+def  geo_plots(df, lat, lon):
+    '''Function reads the dataframe and returns a scatter plot of latitude and longitude.
+    
+        ARGS:
+        df: dataframe
+        lat: latitude column
+        lon: longitude column
+    '''
+
+    p = px.scatter_geo(df, lat = 'latitude', lon = 'longitude')
+    p.show()
 
 def top_n(df, col, n):
     '''Function reads the dataframe and returns the top n values of a column.
