@@ -93,6 +93,25 @@ def mean_median(df):
         print(f'{col} mean: {df[col].mean()}')
         print(f'{col} median: {df[col].median()}\n')
 
+def drop_outliers(df, col):
+    '''Function reads the dataframe and drops the outliers of a column.
+    
+        ARGS:
+        df: dataframe
+        col: column to drop outliers
+        
+        RETURNS:
+        df: dataframe with outliers removed
+    '''
+    q1 = df[col].quantile(0.25)
+    q3 = df[col].quantile(0.75)
+    iqr = q3 - q1
+    lower_bound = q1 - 1.5*iqr
+    upper_bound = q3 + 1.5*iqr
+    df = df[(df[col] > lower_bound) & (df[col] < upper_bound)]
+    return df
+
+
 def cat_buckets(df, col):
     '''Function reads in a column and stores the values as numbers based on which
     bucket they fall into.
